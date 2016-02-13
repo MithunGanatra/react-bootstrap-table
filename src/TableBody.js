@@ -112,8 +112,8 @@ class TableBody extends React.Component{
           enableCellEdit={this.props.cellEdit.mode !== Const.CELL_EDIT_NONE}
           onRowClick={this.handleRowClick.bind(this)}
           onSelectRow={this.handleSelectRow.bind(this)}>
-          {tableColumns}
           {selectRowColumn}
+          {tableColumns}
         </TableRow>
       )
     }, this);
@@ -220,7 +220,7 @@ class TableBody extends React.Component{
     var keys = [];
     keys.push(key);
     console.log('Keys array in handleDelectRow : ' + keys);
-    this.onDropRow(keys);
+    this.props.onDropRow(keys);
   }
 
   handleEditCell(rowIndex, columnIndex){
