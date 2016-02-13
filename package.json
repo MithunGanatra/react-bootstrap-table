@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-table-mithun",
-  "version": "1.0.0",
+  "version": "1.0.0.1",
   "description": "It' a react table for bootstrap",
   "main": "./dist/react-bootstrap-table.min.js",
   "repository": {
