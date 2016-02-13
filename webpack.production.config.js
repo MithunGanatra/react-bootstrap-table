@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     path: './dist',
-    filename: '[name]-mithun.min.js',
+    filename: '[name].min.js',
     library: 'ReactBootstrapTable',
     libraryTarget: 'umd'
   },
