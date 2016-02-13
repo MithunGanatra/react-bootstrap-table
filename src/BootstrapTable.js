@@ -234,6 +234,7 @@ class BootstrapTable extends React.Component {
             onRowClick={this.handleRowClick.bind(this)}
             onSelectRow={this.handleSelectRow.bind(this)}
             noDataText={this.props.options.noDataText}
+            onDropRow={this.handleDropRow.bind(this)}
           />
         </div>
         {tableFilter}

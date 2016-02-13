@@ -112,8 +112,8 @@ class TableBody extends React.Component{
           enableCellEdit={this.props.cellEdit.mode !== Const.CELL_EDIT_NONE}
           onRowClick={this.handleRowClick.bind(this)}
           onSelectRow={this.handleSelectRow.bind(this)}>
-          {selectRowColumn}
           {tableColumns}
+          {selectRowColumn}
         </TableRow>
       )
     }, this);
@@ -203,6 +203,26 @@ class TableBody extends React.Component{
     }
   }
 
+  getRowKey(rowIndex){
+    var key;
+    this.props.data.forEach(function(row, i){
+      if(i == rowIndex-1){
+        key = row[this.props.keyField];
+        return false;
+      }
+    }, this);
+    return key;
+  }
+
+  handleDelectRow(e) {
+    var key = this.getRowKey(e.currentTarget.parentElement.parentElement.rowIndex);
+    console.log('Key in handleDelectRow : ' + key);
+    var keys = [];
+    keys.push(key);
+    console.log('Keys array in handleDelectRow : ' + keys);
+    this.onDropRow(keys);
+  }
+
   handleEditCell(rowIndex, columnIndex){
     this.editing = true;
     if(this._isSelectRowDefined()){
@@ -240,11 +260,12 @@ class TableBody extends React.Component{
   }
 
   renderSelectRowColumn(selected){
-    if(this.props.selectRow.mode == Const.ROW_SELECT_SINGLE) {
+    /*if(this.props.selectRow.mode == Const.ROW_SELECT_SINGLE) {
       return (<TableColumn><input type="radio" name="selection" checked={selected} onChange={this.handleSelectRowColumChange.bind(this)}/></TableColumn>);
     }else {
       return (<TableColumn ><input type="checkbox" checked={selected} onChange={this.handleSelectRowColumChange.bind(this)}/></TableColumn>);
-    }
+    }*/
+    return (<TableColumn><i className="glyphicon glyphicon-trash" onClick={this.handleDelectRow.bind(this)}></i></TableColumn>);
   }
 
   getBodyHeaderDomProp(){
@@ -301,6 +322,7 @@ TableBody.propTypes = {
   selectedRowKeys: React.PropTypes.array,
   onRowClick: React.PropTypes.func,
   onSelectRow: React.PropTypes.func,
-  noDataText: React.PropTypes.string
+  noDataText: React.PropTypes.string,
+  onDropRow: React.PropTypes.func
 };
 export default TableBody;
