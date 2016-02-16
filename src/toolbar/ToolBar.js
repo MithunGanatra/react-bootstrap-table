@@ -42,9 +42,9 @@ class ToolBar extends React.Component{
 
         if(column.editable&&column.editable.validator){//process validate
           tempMsg= column.editable.validator(tempValue)
-          if(tempMsg!==true){
+          if(tempMsg.isValid!==true){
             isValid=false;
-            validateState[column.field]=tempMsg;
+            validateState[column.field]=tempMsg.message;
           }
         }
       }
@@ -213,7 +213,7 @@ class ToolBar extends React.Component{
       // if(editor.props.type && editor.props.type == 'checkbox'){
       return(
         <div className="form-group" key={column.field}>
-          <label>{column.name}</label>
+          <label>{column.name} {typeof(editable) === "object" ? " *" : "" }</label>
           {Editor(editable,attr,format,'')}
           {error}
         </div>

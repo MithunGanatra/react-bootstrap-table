@@ -434,7 +434,7 @@ class BootstrapTable extends React.Component {
             that.deleteRow(dropRowKeys);
           }
         );
-      } else if (confirm('Are you sure want delete?')) {
+      } else if (confirm('Are you sure you want to delete the permission ?')) {
         this.deleteRow(dropRowKeys);
       }
     }

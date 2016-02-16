@@ -43,9 +43,10 @@ class TableEditColumn extends React.Component{
   validator(value){
       var ts=this;
       if(ts.props.editable.validator){
-          var valid=ts.props.editable.validator(value);
-          if(valid!==true){
-              ts.refs.notifier.notice('error',valid,"Please enter valid values or Press ESC to cancel");
+          //var valid=ts.props.editable.validator(value);
+          var validObj=ts.props.editable.validator(value);
+          if(validObj.isValid!==true){
+              ts.refs.notifier.notice('error',validObj.isValid,validObj.message);
               var input = ts.refs.inputRef;
               //animate input
               ts.clearTimeout();
