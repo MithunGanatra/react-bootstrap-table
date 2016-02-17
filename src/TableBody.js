@@ -265,7 +265,7 @@ class TableBody extends React.Component{
     }else {
       return (<TableColumn ><input type="checkbox" checked={selected} onChange={this.handleSelectRowColumChange.bind(this)}/></TableColumn>);
     }*/
-    return (<TableColumn><i className="glyphicon glyphicon-trash" onClick={this.handleDelectRow.bind(this)}></i></TableColumn>);
+    return (<TableColumn><i className="glyphicon glyphicon-trash" title="Delete permission" onClick={this.handleDelectRow.bind(this)}></i></TableColumn>);
   }
 
   getBodyHeaderDomProp(){

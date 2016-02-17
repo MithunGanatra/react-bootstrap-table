@@ -211,9 +211,13 @@ class ToolBar extends React.Component{
 
       // let editor = Editor(editable,attr,format);
       // if(editor.props.type && editor.props.type == 'checkbox'){
+
+      var styles = {
+        color: 'red'
+      };
       return(
         <div className="form-group" key={column.field}>
-          <label>{column.name} {typeof(editable) === "object" ? " *" : "" }</label>
+          <label>{column.name} {typeof(editable) === "object" ? (<label style={styles}> *</label>) : "" }</label>
           {Editor(editable,attr,format,'')}
           {error}
         </div>
