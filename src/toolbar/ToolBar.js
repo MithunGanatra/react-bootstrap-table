@@ -32,8 +32,9 @@ class ToolBar extends React.Component{
       if(column.autoValue){//when you want same auto generate value and not allow edit, example ID field
         tempValue=typeof column.autoValue=='function'?column.autoValue():('autovalue-'+new Date().getTime());
       }else{
-        let dom = this.refs[column.field+i];
-        tempValue = dom.value;
+        //let dom = this.refs[column.field+i];
+       // tempValue = dom.value;
+        tempValue = this.refs.form[i-1].value;  //Permission: Updated for retrieve selected value from auto-suggest
 
         if(column.editable && column.editable.type == 'checkbox'){
           let values = dom.value.split(':');

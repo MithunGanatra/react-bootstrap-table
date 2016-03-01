@@ -33,6 +33,10 @@ class TableEditColumn extends React.Component{
     if(this.props.blurToSave){
       let value = e.currentTarget.type == 'checkbox'?
                     this._getCheckBoxValue(e):e.currentTarget.value;
+
+      if(e.type=='click'){
+        value = e.target.textContent;
+      }
       if(!this.validator(value)){
           return;
       }
@@ -67,8 +71,7 @@ class TableEditColumn extends React.Component{
   }
   componentDidMount(){
       var input = this.refs.inputRef;
-      // input.value = this.props.children||'';
-      input.focus();
+      input.value = this.props.children||'';
   }
 
   componentWillUnmount() {

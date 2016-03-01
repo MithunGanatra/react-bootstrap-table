@@ -1,4 +1,5 @@
 import React from 'react';
+import AutoSuggestion from './AutoSuggestion';
 var Editor=function(editable, attr, format, editorClass, defaultValue){
 
 
@@ -38,7 +39,13 @@ var Editor=function(editable, attr, format, editorClass, defaultValue){
             return(
                 <select {...attr} defaultValue={defaultValue}>{options}</select>
             );
-        } else if(editable.type === 'textarea'){//process textarea input
+        } else if(editable.type === 'autoSuggest'){
+            var options = [], values = editable.options.values;
+            return(
+                <AutoSuggestion {...attr} suggestions={values} value={defaultValue} />
+            );
+        }
+        else if(editable.type === 'textarea'){//process textarea input
             //put  other if exist
             editable.cols&&(attr.cols=editable.cols);
             editable.rows&&(attr.rows=editable.rows);
