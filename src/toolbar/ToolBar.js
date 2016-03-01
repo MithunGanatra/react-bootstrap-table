@@ -125,7 +125,7 @@ class ToolBar extends React.Component{
     var modalClassName = "bs-table-modal-sm"+new Date().getTime();
     var insertBtn = this.props.enableInsert?
           <button type="button" onClick={this.props.onAddRowBegin} className="btn btn-info" data-toggle="modal" data-target={'.'+modalClassName}>
-            <i className="glyphicon glyphicon-plus"></i>New Permission</button>:null;
+            <i className="glyphicon glyphicon-plus"></i> New Permission</button>:null;
 
     var deleteBtn = this.props.enableDelete?
           <button type="button" className="btn btn-warning" data-toggle="tooltip" data-placement="right" title="Drop selected row"

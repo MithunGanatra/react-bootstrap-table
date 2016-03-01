@@ -42,7 +42,7 @@ var Editor=function(editable, attr, format, editorClass, defaultValue){
         } else if(editable.type === 'autoSuggest'){
             var options = [], values = editable.options.values;
             return(
-                <AutoSuggestion {...attr} suggestions={values} value={defaultValue} />
+                <AutoSuggestion {...attr} suggestions={values} value={defaultValue} placeholder={editable.placeholder} />
             );
         }
         else if(editable.type === 'textarea'){//process textarea input

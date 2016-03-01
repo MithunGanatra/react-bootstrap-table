@@ -111,6 +111,7 @@ var AutoSuggestion = React.createClass({
 	render: function() {
 	    var suggestedTags = this.state.suggestedTags;
 		var inputProps = {
+			placeholder: this.props.placeholder,
 			value: this.state.value,
 			onChange: this.onChange,
 			onBlur : this.handleBlur,
